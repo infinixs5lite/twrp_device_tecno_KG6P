@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/tecno/TECNO-KG6P
+DEVICE_PATH := device/tecno/KG6P
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -95,6 +95,25 @@ TARGET_USERIMAGES_USE_F2FS := true
 # Security patch level
 VENDOR_SECURITY_PATCH := 2021-08-01
 
+#fastbootd
+TW_INCLUDE_FASTBOOT := true
+
+# Crypto
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO_FBE := true
+BORAD_USES_METADATA_PARTITION :=true
+TW_INCLUDE_FBE_METADATA_DECRYPT =:true
+
+#recovery modules
+TARGET_RECOVERY_DEVICE_MODULES += \
+    libkeymaster4 \
+    libpuresoftkeymasterdevice \
+
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
+    
+
 # Verified Boot
 BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
@@ -104,10 +123,28 @@ PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0
 
-# TWRP Configuration
+# TWRP-Specific configuration
 TW_THEME := portrait_hdpi
+TW_DEVICE_VERSION := Twrp 3.7 built by @kelexine GitHub|XDA
+RECOVERY_SDCARD_ON_DATA := true
+TARGET_USES_MKE2FS := true
+TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TW_DEFAULT_BRIGHTNESS := 1200
+TW_MAX_BRIGHTNESS := 2047
+TW_Y_OFFSET := 80
+TW_H_OFFSET := -80
+TW_EXCLUDE_DEFAULT_USB_INIT := true
+TW_EXCLUDE_PYTHON := true
+TW_EXCLUDE_NANO := true
+TW_EXCLUDE_TWRPAPP := true
 TW_EXTRA_LANGUAGES := true
+TW_INCLUDE_NTFS_3G := true
+TW_NO_SCREEN_BLANK := true
 TW_SCREEN_BLANK_ON_BOOT := true
-TW_INPUT_BLACKLIST := "hbtp_vm"
-TW_USE_TOOLBOX := true
+TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_REPACKTOOLS := true
+TW_HAS_MTP := true
+
+# Debug
+TWRP_INCLUDE_LOGCAT := true
+TARGET_USES_LOGD := true
