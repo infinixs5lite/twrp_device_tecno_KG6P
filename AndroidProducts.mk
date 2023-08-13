@@ -7,8 +7,3 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/twrp_KG6P.mk
-
-COMMON_LUNCH_CHOICES := \
-    twrp_KG6P-user \
-    twrp_KG6P-userdebug \
-    twrp_KG6P-eng
