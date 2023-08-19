@@ -1,0 +1,7 @@
+ro.mediatek.platform=MT6765
+ro.hardware=mt6765
+ro.crypto.volume.filenames_mode=aes-256-cts
+ro.hardware.kmsetkey=beanpod
+ro.hardware.gatekeeper=beanpod
+ro.sys.usb.storage.type=mtp
+to.mtk_microtrust_tee_support=1
