@@ -104,7 +104,7 @@ TW_INCLUDE_CRYPTO_FBE := true
 BORAD_USES_METADATA_PARTITION :=true
 TW_INCLUDE_FBE_METADATA_DECRYPT =:true
 
-#recovery modules
+# recovery modules
 TARGET_RECOVERY_DEVICE_MODULES += \
     libkeymaster4 \
     libpuresoftkeymasterdevice \
@@ -125,7 +125,7 @@ PLATFORM_VERSION := 16.1.0
 
 # TWRP-Specific configuration
 TW_THEME := portrait_hdpi
-TW_DEVICE_VERSION := Twrp 3.7 built by @kelexine GitHub|XDA
+TW_DEVICE_VERSION := Twrp 3.7 built by NINO
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_USES_MKE2FS := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
